@@ -8,16 +8,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistencia.Data.Configurations
 {
-    public class EmpleadoConfiguration : IEntityTypeConfiguration<Empleado>
+    public class ProveedorConfiguration : IEntityTypeConfiguration<Proveedor>
     {
-        public void Configure(EntityTypeBuilder<Empleado> builder)
+        public void Configure(EntityTypeBuilder<Proveedor> builder)
         {
-            builder.ToTable("Empleado");
+            builder.ToTable("Proveedor");
 
             builder.Property(p => p.Id)
             .IsRequired();
             
-            builder.Property(n => n.IdEmpleado)
+            builder.Property(n => n.NitProveedor)
             .HasColumnType("int")
             // .IsUnicode(true)
             .IsRequired();
@@ -27,16 +27,12 @@ namespace Persistencia.Data.Configurations
             .IsRequired()
             .HasMaxLength(100);
 
-            builder.Property(n => n.FechaIngreso)
-            .HasColumnType("Date")
-            .IsRequired();
-
-            builder.HasOne(t => t.Cargo)
-            .WithMany(t => t.Empleados)
-            .HasForeignKey(t => t.IdCargoFk);
+            builder.HasOne(t => t.TipoPersona)
+            .WithMany(t => t.Proveedores)
+            .HasForeignKey(t => t.IdTipoPersonaFk);
 
             builder.HasOne(t => t.Municipio)
-            .WithMany(t => t.Empleados)
+            .WithMany(t => t.Proveedores)
             .HasForeignKey(t => t.IdMunicipioFk);
         }
     }

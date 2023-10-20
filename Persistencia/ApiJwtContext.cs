@@ -14,7 +14,7 @@ namespace Persistencia;
         public DbSet<UserRol> UsersRols { get; set; }
         public DbSet<Cargo> Cargos {get; set;}
         public DbSet<Cliente> Clientes {get; set;}
-        public DbSet<Color> Colores {get; set;}
+        public DbSet<ColorDetalle> ColoreDetalles {get; set;}
         public DbSet<Departamento> Departamentos {get; set;}
         public DbSet<DetalleOrden> DetalleOrdenes {get; set;}
         public DbSet<DetalleVenta> DetalleVentas {get; set;}

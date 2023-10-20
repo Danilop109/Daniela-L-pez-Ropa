@@ -8,10 +8,10 @@ namespace Persistencia.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<TipoPersona> builder)
         {
-            builder.ToTable("tipoPersona");
+            builder.ToTable("TipoPersona");
 
-            builder.Property(p => p.Descripcion)
-            .HasColumnName("descripcion")
+            builder.Property(p => p.Nombre)
+            .HasColumnName("Nombre")
             .HasColumnType("varchar")
             .IsRequired()
             .HasMaxLength(200);

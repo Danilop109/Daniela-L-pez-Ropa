@@ -16,6 +16,8 @@ namespace Dominio.Entities
         public Municipio Municipio {get; set;}
         public ICollection<DetalleVenta> DetalleVentas {get; set;}
         public ICollection<Orden> Ordenes {get; set;}
+        public ICollection<Venta> Ventas {get; set;}
+
 
     }
 }

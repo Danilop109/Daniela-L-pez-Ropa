@@ -8,35 +8,36 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistencia.Data.Configurations
 {
-    public class EmpleadoConfiguration : IEntityTypeConfiguration<Empleado>
+    public class EmpresaConfiguration : IEntityTypeConfiguration<Empresa>
     {
-        public void Configure(EntityTypeBuilder<Empleado> builder)
+        public void Configure(EntityTypeBuilder<Empresa> builder)
         {
-            builder.ToTable("Empleado");
+            builder.ToTable("Empresa");
 
             builder.Property(p => p.Id)
             .IsRequired();
             
-            builder.Property(n => n.IdEmpleado)
+            builder.Property(n => n.Nit)
             .HasColumnType("int")
             // .IsUnicode(true)
             .IsRequired();
 
-            builder.Property(n => n.Nombre)
+            builder.Property(n => n.RazonSocial)
             .HasColumnType("varchar")
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(300);
 
-            builder.Property(n => n.FechaIngreso)
+            builder.Property(n => n.RepresentanteLegal)
+            .HasColumnType("varchar")
+            .IsRequired()
+            .HasMaxLength(300);
+
+            builder.Property(n => n.FechaCreacion)
             .HasColumnType("Date")
             .IsRequired();
 
-            builder.HasOne(t => t.Cargo)
-            .WithMany(t => t.Empleados)
-            .HasForeignKey(t => t.IdCargoFk);
-
             builder.HasOne(t => t.Municipio)
-            .WithMany(t => t.Empleados)
+            .WithMany(t => t.Empresas)
             .HasForeignKey(t => t.IdMunicipioFk);
         }
     }

@@ -29,5 +29,28 @@ namespace Aplicacion.Repository
             return await _context.TipoPersonas
             .FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        // private readonly ApiJwtContext _context;
+
+        // public PersonaRepository(ApiJwtContext context) : base(context)
+        // {
+        //     _context = context;
+        // }
+
+        // public override async Task<IEnumerable<Persona>> GetAllAsync()
+        // {
+        //     return await _context.Personas
+        //     .Include(p => p.TipoPersona)
+        //     .ToListAsync();
+        // }
+
+        // public override async Task<Persona> GetByIdAsync(int id)
+        // {
+        //     return await _context.Personas
+        //     .Include(p => p.TipoPersona)
+        //     .FirstOrDefaultAsync(p => p.Id == id);
+        // }
+
+
     }
 }
