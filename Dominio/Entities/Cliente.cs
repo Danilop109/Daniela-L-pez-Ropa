@@ -7,7 +7,7 @@ namespace Dominio.Entities
 {
     public class Cliente : BaseEntity
     {
-        public int ClienteId { get; set; }
+        public int IdCliente { get; set; }
         public string Nombre { get; set; }
         public DateOnly FechaRegistro {get; set;}
         public int IdTipoPersona {get; set;}
