@@ -32,7 +32,8 @@ namespace Dominio.Interfaces
         IProveedor Proveedores {get;}
         ITalla Tallas {get;}
         ITipoEstado TipoEstados {get;}
-        ITipoProteccion TipoProteccion {get;}
+        ITipoPersona TipoPersonas {get;}
+        ITipoProteccion TipoProtecciones {get;}
         IVenta Ventas {get;}
 
         Task<int> SaveAsync();

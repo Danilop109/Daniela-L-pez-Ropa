@@ -11,7 +11,7 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(ApiJwtContext))]
-    [Migration("20231020222339_FirstMigration")]
+    [Migration("20231021011519_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -400,6 +400,9 @@ namespace Persistencia.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cantidad")
                         .HasColumnType("int");
 
                     b.Property<int>("IdInventarioFk")

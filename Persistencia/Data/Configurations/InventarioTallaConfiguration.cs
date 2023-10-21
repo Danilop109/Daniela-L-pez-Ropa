@@ -16,6 +16,10 @@ namespace Persistencia.Data.Configurations
 
             builder.Property(p => p.Id)
             .IsRequired();
+
+            builder.Property(n => n.Cantidad)
+            .HasColumnType("int")
+            .IsRequired();
             
              builder.HasOne(t => t.Inventario)
             .WithMany(t => t.InventarioTallas)

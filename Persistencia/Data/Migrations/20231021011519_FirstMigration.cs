@@ -630,6 +630,7 @@ namespace Persistencia.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
                     IdInventarioFk = table.Column<int>(type: "int", nullable: false),
                     IdTallaFk = table.Column<int>(type: "int", nullable: false)
                 },

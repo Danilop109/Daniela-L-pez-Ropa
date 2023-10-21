@@ -7,6 +7,7 @@ namespace Dominio.Entities
 {
     public class InventarioTalla : BaseEntity
     {
+        public int Cantidad { get; set; }
         public int IdInventarioFk {get; set;}
         public Inventario Inventario {get; set;}
         public int IdTallaFk {get; set;}
