@@ -43,5 +43,15 @@ namespace Aplicacion.Repository
 
         return (totalRegistros, registros);
     }
+
+    //CONSULTA 2 : Listar los Insumos que son vendidos por un determinado proveedor cuyo 
+    //tipo de persona sea Persona Jurídica. El usuario debe ingresar el Nit de proveedor.
+
+        // public async Task<IEnumerable<object>> GetInsumosVendidosPorPersonaJuridica(int nit)
+        // {
+        //     var objeto= from ip in _context.InsumoProveedores
+        //     join i in _context.Insumos on ip.IdInsumoFk equals i.Id
+
+        // }
     }
 }

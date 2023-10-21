@@ -8,6 +8,6 @@ namespace Dominio.Interfaces
 {
     public interface IPrenda : IGenericRepository<Prenda>
     {
-        
+        abstract Task<IEnumerable<object>> GetInsumosByPrenda(int idPrenda);
     }
 }

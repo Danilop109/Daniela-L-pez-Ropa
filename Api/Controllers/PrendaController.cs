@@ -55,6 +55,19 @@ namespace Api.Controllers;
         var listEntidad = mapper.Map<List<PrendaDto>>(entidad.registros);
         return new Pager<PrendaDto>(listEntidad, entidad.totalRegistros, paisParams.PageIndex, paisParams.PageSize, paisParams.Search);
     }
+
+    
+     [HttpGet("GetInsumosByPrenda/{idPrenda}")]
+     [MapToApiVersion("1.0")]
+     [ProducesResponseType(StatusCodes.Status200OK)]
+     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+     public async Task<ActionResult<object>> GetInsumosByPrenda(int idPrenda)
+     {
+         var entidad = await unitofwork.Prendas.GetInsumosByPrenda(idPrenda);
+         var dto = mapper.Map<IEnumerable<object>>(entidad);
+         return Ok(dto);
+     }
+
     
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]

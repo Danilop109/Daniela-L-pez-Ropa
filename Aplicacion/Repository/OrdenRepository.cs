@@ -87,6 +87,20 @@ namespace Aplicacion.Repository
             return await objeto.ToListAsync();
         }
 
+        // CONSULTA 4: Listar todas las ordenes de producción cuyo estado se en proceso.
+        public async Task<IEnumerable<object>> GetOrderByState()
+        {
+            var objeto = from o in _context.DetalleOrdenes 
+            join dord in _context.Ordenes on o.IdOrdenFk equals dord.Id
+            join e in _context.Estados on o.IdEstadoFk equals e.Id
+            where e.Descripcion == "En Proceso"
+            select new {
+                    Id= dord.Id,
+                    Fecha = dord.Fecha,
+                    CantidadProducida = o.CantidadProducida
+            };
+            return await objeto.ToListAsync();
+        }
 
     }
 }

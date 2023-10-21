@@ -43,5 +43,28 @@ namespace Aplicacion.Repository
 
         return (totalRegistros, registros);
     }
+
+    //CONSULTA 1:Listar los insumos que pertenecen a una prenda especifica. El usuario debe ingresar el código de la prenda.
+    public async Task<IEnumerable<object>> GetInsumosByPrenda(int idPrenda)
+    {
+        var objeto = from ip in _context.InsumoPrendas
+                      join p in _context.Prendas on ip.IdPrendaFk equals p.Id
+                      where p.Id == idPrenda
+                      select new
+                      {
+                          idPrenda = p.Id,
+                          insumo = (from ip in _context.InsumoPrendas
+                            join i in _context.Insumos on ip.IdInsumoFk equals i.Id
+                            select new
+                          {
+                              Nombre = i.Nombre,
+                              ValorUnidad = i.ValorUnit,
+                              stockMin = i.StockMin,
+                              stockMax = i.StockMax
+
+                          }).ToList()
+                      };
+                      return await objeto.ToListAsync();
     }
+}
 }
