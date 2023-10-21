@@ -110,6 +110,12 @@ Refresca despues de 1 MINUTO el token para seguur accediendo a los endpoints.
     
     Eliminar Usuario: DELETE `http://localhost:5159/Api/User{id}`
 
+## Grupo 1. Listar los insumos que pertenecen a una prenda especifica. El usuario debe ingresar el código de la prenda.:
+
+**Endpoint**: `http://localhost:5159/api/Prenda/GetInsumosByPrenda/{idPrenda}`
+
+**Método**: `GET`
+
 ## Agradecimientos
 
 ¡Gracias por usar este proyecto! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con la creadora.
